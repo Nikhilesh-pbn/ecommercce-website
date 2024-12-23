@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+.content{
+    font-family: 'Poppins';
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #f3f3f3;
+}
+
+.filter{
+    width: 300px;
+    height: 700px;
+    background-color: #ffffff;
+}
+
+.products{
+    width: 78%;
+    height: 100%;
+    background-color: #ffffff;
+}
+
+.product-box{
+    padding: 10px;
+    display: flex;
+    cursor: pointer;
+    border-bottom: 1px solid #bfbcbc;
+}
+
+.image{
+    width: 200px;
+    height: 200px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.image img{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 200px;
+    height: 100%;
+    object-fit: contain;
+}
+.prod-info{
+    width: 600px;
+}
+.name{
+    margin: 0;
+    padding-top: 10px;
+    font-weight: 600;
+    font-size: 16px;
+    flex-wrap: wrap;
+}
+.rating{
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+    background-color: #6d2ad1;
+    border-radius: 3px;
+}
+.rating p{
+    margin: 0;
+    padding-left: 3px;
+    font-size: 14px;
+}
+.rating i{
+    margin-top: 1px;
+    padding: 3px;
+    font-size: 12px;
+}
+.specs{
+    font-size: 15px;
+    padding: 7px;
+}
+.specs ul{
+    padding-left: 10px;
+}
+.price-details{
+    display: flex;
+    flex-direction: column;
+    padding-top: 30px;
+    padding-left: 20px;
+    width: auto;
+}
+.price{
+    margin-bottom: 10px;
+    font-weight: 600;
+    font-size: 24px;
+}
+.discount{
+    display: flex;
+    font-size: 14px;
+}
+.discount p{
+    text-decoration: line-through;
+    padding-right: 10px;
+    margin: 0;
+}
+
+.more{
+    display: flex;
+    justify-content: center;
+}
+.more button{
+    all: unset;
+    font-size: 17px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 3px;
+    margin: 3px;
+    cursor: pointer;
+}

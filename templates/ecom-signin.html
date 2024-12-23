@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{url_for('static',filename='styles/ecom-signin.css')}}"/>
+    
+</head>
+<body>
+
+<div class="container">
+    <div class="nav-bar-logo">
+        <p onclick="location.href='/'">Bayle.</p>
+    </div>
+
+    <div class="loginform-center-in-web-container" id="login_main_container">
+        <form action="{{url_for('login')}}" method="POST" id="login_form"> 
+            <div class="signin-container">
+                <h1 class="signin-heading">Sign in</h1>
+
+                <div class="username-container">
+                    <label id="enterUsername" class="username-heading" for="login_username">Enter your email or username:</label>
+                    <input type="text" id="login_username" name="login_username" class="form-control input" placeholder="Email or Fullname"/>
+                    <p class="error-message" id="error_username"></p>
+                </div>
+
+                <div class="password-container">
+                    <label id="enterPassword" class="password-heading" for="login_password">Enter Password:</label>
+                    <input type="password" id="login_password" name="login_password" class="form-control input" placeholder="Password" />
+                    <p class="error-message" id="error_password"></p> 
+
+                    <div class="show-password-container">        
+                        <input type="checkbox" id="loginCheckBox" class="check-box"/>
+                        <label for="loginCheckBox" style="cursor: pointer;">Show password</label>
+                    </div>
+                </div>
+
+                <div class="button-container">
+                    <button class="login-button" id="login_button" type="submit">Login</button>
+                </div>
+
+                <div class="forgot-password-contact-us">
+                    <div>
+                        <a href="/forgot-password">Forgot Password?</a>
+                    </div>
+                    <div>
+                        <a href="#">Contact us</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="d-flex flex-row justify-content-center align-items-center pt-3">
+                <div style="border:1px solid #D3D3D3; width:140px; height: 1px"></div>
+                <p class="new-to-bayle-heading pt-3 p-1">NEW TO BAYLE?</p>
+                <div style="border:1px solid #D3D3D3; width:140px; height: 1px"></div>
+            </div>
+
+            <div>
+                <button class="create-button" type="button" id="createAccount" onclick="location.href ='/signupPage'">Create Your Bayle Account</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="{{url_for('static',filename='scripts/ecom-signin_signup.js')}}"></script>
+<script>
+    document.getElementById('login_form').onsubmit = function() {
+        sessionStorage.setItem("logged_in", "true");
+    }
+</script>
+</body>
+</html>

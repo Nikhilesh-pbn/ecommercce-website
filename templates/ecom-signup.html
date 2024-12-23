@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{url_for('static',filename='styles/ecom-signup.css')}}"/>
+</head>
+<body>
+    <div class="container">
+        <div class="nav-bar-logo">
+            <p onclick="location.href='/'">Bayle.</p>
+        </div>
+        <div class="loginform-center-in-web-container">
+
+            <form action="{{url_for('register')}}" method="POST" id="register_form"> 
+                <div class="signin-container" id="signup_container">
+
+                    <h1 class="signin-heading">Create Account</h1>
+                    <div class="username-container">
+                        <label for="register_fullname" class="username-heading">Your Name</label>
+                        <input type="text" id="register_fullname" name="register_fullname" class="form-control input" placeholder="First name and last name"/>
+                        <p class="error-message" id="error_fullname"></p>
+                        
+                    </div>
+
+                    <div class="username-container">
+                        <label for="register_email" class="username-heading">Your Email</label>
+                        <input type="email" id="register_email" name="register_email" class="form-control input" placeholder="Email"/>
+                        <p class="error-message" id="error_email"></p>
+                        
+                    </div>
+
+                    <div class="password-container">
+                        <label for="register_password" class="password-heading">Enter Password</label>
+                        <input type="password" name="register_password" id="register_password" class="form-control input" placeholder="At least 6 characters"/>
+                        <p class="error-message" id="error_register_password"></p> 
+
+                        <div class="show-password-container">        
+                            <input type="checkbox" id="registerCheckBox"/>
+                            <label for="registerCheckBox" style="cursor: pointer;">show password</label>
+                        </div>
+                        
+                    </div>
+
+                    <label>
+                        <input type="checkbox" name="agree" >
+                        By signing up, I agree to the <a href="terms-and-conditions.html" target="_blank">Terms and Conditions</a> and <a href="privacy-policy.html" target="_blank">Privacy Policy</a>.
+                    </label>
+
+                    <div class="button-container">
+                        <button class="login-button">Create Account</button>
+                    </div> 
+
+
+                    <div>
+                        <p>Already user? <a href="{{url_for('loginpage')}}">sign in</a></p>
+                    </div>
+                </div>
+            </form>
+            
+        </div>
+
+    </div>
+    
+    <script src="{{url_for('static',filename='scripts/ecom-signin_signup.js')}}"></script>
+</body>
+</html>

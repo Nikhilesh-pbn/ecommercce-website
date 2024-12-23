@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bayle</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='styles/ecom-navbar.css')}}"/>
+    <link rel="stylesheet" href="{{url_for('static', filename='styles/ecom-account.css')}}"/>
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+    <header>
+        <div class="navbar" style="justify-content: space-around;"! important>
+            <div class="nav_logo">
+                <a href="{{url_for('home')}}">BaYle.</a>
+            </div>
+            <div class="men_section">
+                <a href="{{url_for('mobiles')}}">Mobiles</a>
+            </div>
+            <div class="women_section">
+                Laptop
+            </div>
+            <div class="acc_section">
+                Accessories
+            </div>
+            <div class="nav_search">
+                <input placeholder="Search" class="search_amazon" id="searchInput">
+                <div class="search_icon">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                <div class="search_icons" id="micButton">
+                  <i class="fa-solid fa-microphone"></i>
+              </div>
+                
+            </div> 
+            <div class="nav_login">
+                <button onclick="location.href='/'" onclick="location.reload(true)">home</button>
+            </div>
+
+            <div class="cart-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36px" height="36px" fill="#ffffff">
+                <path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM7.16 12l1.73-6h7.78l1.73 6H7.16zm12.64-7H5.52L4.3 4H1v2h2.4l3.6 12h13.91l1.45-5.04L22 9.25l-2.2-.51z"/>
+                </svg>
+                <span class="cart-count">0</span>
+            </div> 
+        </div>
+    </header>
+
+    <div class="account_content" id="account-content">
+        <div class="account-container">
+            <div>
+                <div class="profile-name-container">
+                        <img  src="{{url_for('static',filename='images/profile.jpg')}}" class="profile-image"/>
+                        <div class="user-greetings">
+                            <span>Hello,</span>
+                            <span id="displayUsername" class="display-username">hi</span>
+                        </div>
+                </div>
+
+
+                <div class="left-side-container">
+
+                    <div class="account-heading-container">
+                            <i class="fa-solid fa-user bayle-icons-color"></i>
+                            <h1 class="account-setting-heading">Account Settings</h1>
+                    </div>
+                    <div class="options-container">
+                        <div>
+                            <div class="options" data-target="profile-info">
+                                <a  class="manage-account">Profile information</a>
+                            </div>
+                            <div class="options" data-target="address-info">
+                                <a  class="manage-account" >Manage Addresses</a>
+                            </div>
+                            <div class="options" data-target="card-info">
+                                <a  class="manage-account">PAN Card information</a>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="divider"/>
+
+
+                    <div class="account-heading-container">
+                        <i class="fa-solid fa-wallet bayle-icons-color"></i>
+                        <h1 class="account-setting-heading">PAYMENTS</h1>
+                    </div>
+                <div class="options-container">
+                    <div>
+                        <div class="options" data-target="wallet-info-payments">
+                            <a  class="manage-account">Wallet & Payments</a>
+                        </div>
+                        <div class="options" data-target="payments-history">
+                            <a  class="manage-account">Payment History</a>
+                        </div>
+                        <div class="options" data-target="cards-info">
+                            <a  class="manage-account">Saved Cards</a>
+                        </div>
+                    </div>
+                </div>
+                <hr class="divider"/>
+
+
+                <div class="account-heading-container">
+                    <i class="fa-solid fa-id-card-clip bayle-icons-color"></i>
+                    <h1 class="account-setting-heading">MY STUFF</h1>
+                </div>
+            <div class="options-container">
+                <div>
+                    <div class="options" data-target="coupons-info">
+                        <a class="manage-account" >My Coupons</a>
+                    </div>
+                    <div class="options" data-target="ratings-info">
+                        <a  class="manage-account">My Review & Ratings</a>
+                    </div>
+                    <div class="options" data-target="notifications-info">
+                        <a  class="manage-account">All Notifications</a>
+                    </div>
+                    <div class="options" data-target="wishlists-info">
+                        <a  class="manage-account">My Wishlists</a>
+                    </div>
+                </div>
+            </div>
+            <hr class="divider"/>
+
+            <div class="account-heading-container">
+                <i class="fa-solid fa-power-off bayle-icons-color"></i>
+                <a class="logout account-setting-heading"id="loggedOut" href="{{ url_for('logout') }}">LOGOUT</a>
+            </div> 
+         </div>
+                <div class="bottom-side-container">
+
+                </div>
+            </div>
+            
+
+            <div class="right-side-container">
+                <div id="profile-info" class="content-section">
+                    <div class="profile-info-container">
+                        <div class="name-updation-container">
+                            <p class="side-heading">Profile information</p>
+                            <span class="edit-button" id="edit_button">Edit</span>
+                        </div>
+
+                        <form method="PUT" id="SaveData">
+                            <div class="username-updation">                       
+                                <input type="text" class="update-input " id="update_first_name" placeholder="First name" style="cursor: not-allowed;" required disabled>
+                      
+                                <input type="text" class="update-input " id="update_last_name"placeholder="Last name" style="cursor: not-allowed;" required disabled/> 
+
+                                <button class="save-button" id="save_button" style="display: none;">SAVE</button>
+                            </div>
+
+                            <div class="gender-updation">
+                                <div class="name-updation-container">
+                                    <label class="side-heading">Your Gender</label>
+                                </div>
+
+                                <div class="gender-container">
+                                
+                                        <div style="margin-left: 10px;">
+                                            <input type="radio" class="gender" value="Male" name="gender" id="gender_male"   disabled/>
+                                            <label for="gender_male" style="cursor: pointer;">Male</label>
+                                        </div>
+                                        <div style="margin-left: 20px;">
+                                            <input type="radio" class="gender" value="Female" name="gender" id="gender_female" disabled/>
+                                            <label for="gender_female" style="cursor: pointer;">Female</label>
+                                        </div>
+                                    
+                                </div>
+                            </div>
+                        </form>
+
+                        <form>
+                            <div class="name-updation-container mt-5">
+                                <p class="side-heading">Email Address</p>
+                                <span class="edit-button" id="edit_email_button">Edit</span>
+                            </div>
+                            <div class="username-updation">                       
+                                <input type="email" class="update-input " id="update_email_address" placeholder="Email Address" style="cursor: not-allowed;" required disabled>
+
+                                <div id="notification" class="notification">This is a notification!</div>
+                                <button class="save-button" id="email_save_button" style="display: none;">SAVE</button>
+                            </div>
+
+                        </form>
+
+                        <form>
+                            <div class="name-updation-container mt-5">
+                                <p class="side-heading">Phone Number</p>
+                                <span class="edit-button" id="edit_phone_button">Edit</span>
+                            </div>
+                            <div class="username-updation">                       
+                                <input type="tel" class="update-input" pattern="\\+?[0-9]+" oninput="validateInput(event)" maxlength="10" id="update_phone_number" placeholder="Phone Number" style="cursor: not-allowed;" required disabled>
+
+                                <div id="notification" class="notification">This is a notification!</div>
+                                <button class="save-button" id="save_phone_button" style="display: none;">SAVE</button>
+                            </div>
+
+                        </form>
+
+                        <div class="name-updation-container">
+                            <p class="side-heading">FAQs</p>
+                        </div>
+
+                        <div class="faq-container">
+                            <label class="faq-side-heading">What happens when I update my email address (or mobile number)?</label><br/>
+                            <label class="faq-answer">Modda Emmi jaragadhu</label>
+                        </div>
+
+                        <div class="faq-container">
+                            <label class="faq-side-heading">When will my Bayle account be updated with the new email address (or mobile number)?</label><br/>
+                            <label class="faq-answer">Modda Emmi jaragadhu</label>
+                        </div>
+
+                        <div class="faq-container">
+                            <label class="faq-side-heading">What happens to my existing Bayle account when I update my email address (or mobile number)?</label><br/>
+                            <label class="faq-answer">Modda Emmi jaragadhu</label>
+                        </div>
+
+                        <div class="faq-container">
+                            <label class="faq-side-heading">Does my Seller account get affected when I update my email address?</label><br/>
+                            <label class="faq-answer">Modda Emmi jaragadhu</label>
+                        </div>
+
+                    </div>
+
+                </div>
+                
+                <div id="address-info" class="content-section address-container">
+                    <div class="name-updation-container">
+                        <p class="side-heading">Manage Addresses</p>
+                    </div>
+
+                    <div class="add-address-container" id="add_new_address_button">
+                        <a class="address" style="font-size: 20px; ">+</a>
+                        <a class = "address" id="addAddressButton">ADD A NEW ADDRESS</a>
+                    </div>
+
+                    <form id="addressFormContainer" class="add-address-display">
+                        <div class="new-address-container">
+                            <p class="form-side-heading">ADD A NEW ADDRESS</p>
+
+                            <div class="current-location-container" id="useCurrentLocation">
+                                <i class="fa-solid fa-location-crosshairs location-icon"></i>
+                                <p style="font-size: 14px; color: #ffffff; font-weight: 500; margin: 0px;">Use Current Location</p>
+                            </div>
+
+                            <div class="inputs-container">
+                                <div>
+                                    <input type="text" class="update-input " id="add_address_name" placeholder="Name" required>
+                                </div>
+                                <div>
+                                    <input type="tel" oninput="validateInput(event)"  pattern="[0-9]*" maxlength="10" class="update-input " id="add_address_phone" placeholder="10-digit mobile number" required>
+                                </div>
+                                <div>
+                                    <input type="text" class="update-input mt-2" id="add_address_pin" placeholder="Pincode" required>
+                                </div>
+                                <div>
+                                    <input type="text" class="update-input mt-2" id="add_address_locality" placeholder="Locality" required>
+                                </div>
+                                <div>
+                                    <textarea class="address-input mt-2" cols="61" id="add_address_area" rows="4" placeholder="Address (Area and Street)" required></textarea>
+                                </div>
+                                <div>
+                                    <input type="text" class="update-input " id="add_address_city" placeholder="City/district/town" required>
+                                </div>
+                                <select id="add_address_state" class="update-input" name="state" required>
+                                    <option value="" disabled selected>Select your state</option>
+                                    <option value="Andhra-pradesh">Andhra Pradesh</option>
+                                    <option value="Arunachal-pradesh">Arunachal Pradesh</option>
+                                    <option value="Assam">Assam</option>
+                                    <option value="Bihar">Bihar</option>
+                                    <option value="Chhattisgarh">Chhattisgarh</option>
+                                    <option value="Goa">Goa</option>
+                                    <option value="Gujarat">Gujarat</option>
+                                    <option value="haryana">Haryana</option>
+                                    <option value="himachal-pradesh">Himachal Pradesh</option>
+                                    <option value="jharkhand">Jharkhand</option>
+                                    <option value="karnataka">Karnataka</option>
+                                    <option value="kerala">Kerala</option>
+                                    <option value="madhya-pradesh">Madhya Pradesh</option>
+                                    <option value="maharashtra">Maharashtra</option>
+                                    <option value="manipur">Manipur</option>
+                                    <option value="meghalaya">Meghalaya</option>
+                                    <option value="mizoram">Mizoram</option>
+                                    <option value="nagaland">Nagaland</option>
+                                    <option value="odisha">Odisha</option>
+                                    <option value="punjab">Punjab</option>
+                                    <option value="rajasthan">Rajasthan</option>
+                                    <option value="sikkim">Sikkim</option>
+                                    <option value="tamil-nadu">Tamil Nadu</option>
+                                    <option value="telangana">Telangana</option>
+                                    <option value="tripura">Tripura</option>
+                                    <option value="uttar-pradesh">Uttar Pradesh</option>
+                                    <option value="uttarakhand">Uttarakhand</option>
+                                    <option value="west-bengal">West Bengal</option>
+                                </select>
+
+                                <div>
+                                    <input type="text" class="update-input mt-2" id="add_address_landmark" placeholder="Landmark(optional)" >
+                                </div>
+                                <div>
+                                    <input type="tel" oninput="validateInput(event)" pattern="\\+?[0-9]+" maxlength="10" class="update-input mt-2" id="add_address_optional_phone" placeholder="alternate phone number(optional)" >
+                                </div>
+       
+                                <div style="width: 600px;">
+                                    <div>
+                                        <p class="address-type-heading">Address type</p>
+                                    </div>
+                                    <div class="address-type-container">
+                                        <div style="margin-left: 0px;">
+                                            <input type="radio" class="gender"  value="HOME" name="addresstype" id="add_address_home"/>
+                                            <label for="address-home" style="cursor: pointer;">HOME</label>
+                                        </div>
+                                        <div style="margin-left: 20px;">
+                                            <input type="radio" class="gender" value="WORK"  name="addresstype" id="add_address_work"/>
+                                            <label for="address-work" style="cursor: pointer;">WORK</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="save-or-cancel-container">
+                                    <div style="margin-right: 15px;">
+                                        <button class="save-button" id="address_save_button" style="width: 170px; font-size: 18px;">SAVE</button>
+                                    </div>
+                                    <div class="pt-2">
+                                        <a class="edit-button " id="address_cancel_button" style="text-decoration: none; padding-left: 20px; font-weight: 600;">Cancel</a>
+                                    </div>
+                                </div>
+                                
+                            </div>
+
+                            
+                        </div>
+                    </form>
+
+
+                    <div class="saved-address-container" id="saved_address_container">
+                        <div style="margin-bottom: 14px;" id="address_type_container">
+                            <span class="home-type" id="saved_type">HOME</span>
+                        </div>
+                        <div>
+                            <div class="name-number-container" id="name_number_container">
+                                <span class="saved-name" id="saved_name">PEDDINENI BALA NIKHILESH</span>
+                                <span class="saved-name" style="padding-left: 15px;" id="saved_number">9032684550</span>
+                            </div>
+                        </div>
+                        <div>
+                            <div style="display: flex;" id="address_container">
+                                <span class="save-address" id="saved_area">vaghodia subdtrict ,</span>
+                                <span class="save-address" id="saved_locality">parul university ,</span>
+                                <span class="save-address" id="saved_city">vadodara ,</span>
+                                <span class="save-address" id="saved_state">Gujarat - </span>
+                                <span class="save-address" id="saved_pin" style="font-weight: 600;">391760</span>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+
+
+                <div id="card-info" class="content-section">
+                    <div class="pan-card-container">
+                        <p class="side-heading">PAN Card information</p>
+                        <form class="pan-card-form" id="pan_card_submit_form">
+                            <div class="mt-2" >
+                                <input type="text" class="update-input mt-2" id="add_pan_number" maxlength="10" placeholder="PAN Card Number" >
+                            </div>
+                            <div class="mt-2">
+                                <input type="text" class="update-input mt-2" id="add_pan_name" placeholder="Full Name" >
+                            </div>
+                            <div class="mt-2">
+                                <input type="file" class="update-input mt-2" style="padding-top: 10px;" id="upload_pan_image" id=""/>
+                            </div>
+                            <div style="display: flex; align-items: center; justify-content: center;" class="mt-2">
+                                <input type="checkbox" class="check-box" id="pan_check_box"/>
+                                <label class="faq-answer">I do hereby declare that PAN furnished/stated above is correct and belongs to me, registered as an account holder with www.127.0.0.1:5000. I further declare that I shall solely be held responsible for the consequences, in case of any false PAN declaration.</label>
+                            </div>
+
+                            <div class="mt-4 mb-4">
+                                <button class="save-button" style="height: 42px;" id="pan_card_upload_btn">Upload</button>
+                            </div>
+
+                            <a style="text-decoration: none; color: #6d2ad1; font-size: 15px; cursor: pointer;" target="_blank" href="https://www.bajajfinserv.in/pan-card-rules#:~:text=Financial%20transactions%20of%20Rs.&text=2%2C50%2C000%20or%20more%2C%20possessing,which%20the%20transaction%20was%20executed.">Read Terms & Conditions of PAN Card Information</a>
+                        </form>
+                    </div>
+                </div>
+
+                <div id="wallet-info-payments" class="content-section">
+                    <div class="wallet-container">
+                        <p class="wallet-heading" style="font-size: 25px;"> Wallet Information</p>
+
+                        <div class="account-balance-container">
+                            <p class="wallet-heading">Wallet Balance</p>
+                            <div style="display: flex;">
+                                <i class="fa-solid fa-indian-rupee-sign pt-2 mr-2" style="color: #6d2ad1; font-size: 18px;"></i>
+                                <span class="money">10,00,000.00</span>
+                            </div>  
+                        </div>
+                    </div>
+                </div>
+
+                <div id="payments-history" class="content-section">
+                    <div class="history-container">
+
+                    </div>
+                </div>
+
+                <div id="cards-info" class="content-section">
+                    <div class="cards-container">
+
+                    </div>
+                </div>
+
+                <div id="coupons-info" class="content-section">
+                    <div class="coupons-container">
+
+                    </div>
+                </div>
+
+                <div id="ratings-info" class="content-section">
+                    <div class="ratings-container">
+
+                    </div>
+                </div>
+
+                <div id="notifications-info" class="content-section">
+                    <div class="notifications-container">
+
+                    </div>
+                </div>
+
+                <div id="wishlists-info" class="content-section">
+                    <div class="wishlists-container">
+
+                    </div>
+                </div>
+
+            </div>
+
+            
+        </div>
+
+    </div>
+    <script src="{{url_for('static',filename='scripts/ecom-account.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+window.onload = function () {
+    if (!sessionStorage.getItem("logged_in")) {
+        window.location.href = "/loginpage";
+    } else {
+        showSection("profile-info"); 
+    }
+};
+    </script>
+        <script>
+            let mic = document.getElementById('micButton');
+            mic.addEventListener('click', function() {
+          let searchinput = document.getElementById("searchInput");
+          searchinput.placeholder = "talk something...";
+            const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+            recognition.onresult = function(event) {
+                const transcript = event.results[0][0].transcript;
+                searchinput.value = transcript;
+              switch(searchinput.value){
+                case ("mobiles"):
+                      location.href="{{url_for('mobiles')}}"
+                      break;
+                case ("account"):
+                  location.href="{{url_for('accountpage')}}"
+                  break;
+              }
+            };
+            recognition.start();
+        });
+      
+          </script>
+
+</body>
+</html>

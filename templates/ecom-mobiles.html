@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename='styles/ecom-mobiles.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='styles/ecom-navbar.css')}}"/>
+    <link rel="stylesheet" href="{{url_for('static', filename='styles/ecom-account.css')}}"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Mobiles</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .product-box {
+            border: 1px solid #ccc;
+            margin: 10px;
+            padding: 10px;
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="nav_logo">
+                <a href="{{url_for('home')}}">BaYle.</a>
+            </div>
+            <div class="men_section">
+                <a href="{{url_for('mobiles')}}">Mobiles</a>
+            </div>
+            <div class="women_section">
+                Laptop
+            </div>
+            <div class="acc_section">
+                Accessories
+            </div>
+            <div class="nav_search">
+                <input id="searchInput" placeholder="Search" class="search_amazon">
+                <div class="search_icon">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </div> 
+            {% if session.get('logged_in') %}
+            <div class="nav_login">
+                <button onclick="location.href='/accountPage'">Account</button>
+            </div>  
+            {% else %}
+            <div class="nav_login">
+                <button onclick="location.href='/loginpage'">Login</button>
+            </div>
+            {% endif %}
+            <div class="cart-icon">     
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" onclick="location.href='/cartpage'" width="36px" height="36px" fill="#ffffff">
+                <path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM7.16 12l1.73-6h7.78l1.73 6H7.16zm12.64-7H5.52L4.3 4H1v2h2.4l3.6 12h13.91l1.45-5.04L22 9.25l-2.2-.51z"/>
+                </svg>
+                <span class="cart-count" id="cartCount">0</span>
+              </div>
+        </div>
+    </header>
+
+    <div class="products" id="productList"></div>
+
+    <div class="more"><button>more <i class="fa-solid fa-chevron-down" style="color: #6d2ad1;"></i></button></div>
+    <script src="{{url_for('static',filename='scripts/ecom-mobiles.js')}}"></script>
+
+</body>
+</html>

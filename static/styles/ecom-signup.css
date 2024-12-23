@@ -1,0 +1,205 @@
+@import url("https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    font-family: "Poppins", sans-serif;
+}
+
+.loginform-center-in-web-container{
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.nav-bar-logo{
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+    margin: 10px;
+    padding: 5px;
+    cursor: pointer;
+}
+.nav-bar-logo:hover{
+    border: 1px solid #6d2ad1;
+}
+.nav-bar-logo p{
+    margin: 0;
+    color: #6d2ad1;
+    font-size: 30px;
+    font-weight: 600;
+}
+.signin-container{
+    border: 1px solid #d7d8d9;
+    height: auto;
+    width:  400px;
+    border-radius: 10px;
+    padding: 20px;  
+    display: flex;
+    flex-direction: column;
+}
+
+.increase_size{
+    height: 580px;
+}
+
+.signin-heading{
+    font-size: 23px;
+    font-weight: 600;
+    color: #333333;
+    text-align: center;
+}
+
+.username-container{
+    display:flex;
+    flex-direction: column;
+}
+
+.password-container{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.username-heading{
+    font-size: 15px;
+    color: #333333;
+}
+
+.password-heading{
+    font-size: 15px;
+    color: #333333;
+}
+
+.login-button{
+    width: 100%;
+    height: 35px;
+    font-size: 17px;
+    margin-bottom: 10px;
+    background-color: #6d2ad1;
+    color: #ffffff;
+    margin-bottom: 26px;
+    margin-top:20px;
+    border-radius: 10px;
+    border: #6d2ad1;
+    outline: none;
+}
+
+
+.forgot-password-contact-us{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+
+.new-to-bayle-heading{
+    font-size: 12px;
+    color: #333333;
+    font-weight: Bold;
+}
+
+.create-button{
+    background-color: #ffffff;
+    width:25vw;
+    height: 30px;
+    border:1px solid #d7d8d9;
+    border-radius: 8px;
+}
+
+.input{
+    height: 30px !important;
+}
+
+.input:focus{
+    border-color: #6d2ad1;
+    box-shadow: 0 0 5px 2px rgba(109, 42, 209, 0.4);
+}
+
+.error-message{
+    color: red;
+}
+
+@media (max-width: 600px) {
+    .signin-container {
+        padding: 15px;
+        width: 90%;
+    }
+
+    .logo-image {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+
+    .signin-heading {
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .username-heading, .password-heading {
+        font-size: 14px;
+    }
+
+    .input-field {
+        padding: 8px;
+    }
+
+    .login-button {
+        font-size: 14px;
+        padding: 12px;
+    }
+
+    .new-to-bayle-heading {
+        font-size: 14px;
+    }
+
+    .username-container input,
+    .password-container input {
+        font-size: 14px;
+    }
+
+    .show-password-container {
+        font-size: 12px;
+    }
+}
+
+
+@media (max-width: 768px) and (min-width: 601px) {
+    .signin-container {
+        padding: 20px;
+        width: 80%;
+    }
+
+    .logo-image {
+        width: 70%;
+        margin-bottom: 20px;
+    }
+
+    .signin-heading {
+        font-size: 22px;
+    }
+
+    .input-field {
+        padding: 10px;
+    }
+
+    .login-button {
+        font-size: 15px;
+        padding: 14px;
+    }
+
+    .username-heading, .password-heading {
+        font-size: 16px;
+    }
+
+    .new-to-bayle-heading {
+        font-size: 16px;
+    }
+}
+
+
